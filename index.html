@@ -1,12 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<script>
+// №1
+
+//var a = 1, b = 1, c, d;
+//c = ++a; alert(c);           // 2 префиксная форма инкремента - увличиваем а на 1 и присваеваем значение a переменной с. Теперь с = 2, а = 2;
+//d = b++; alert(d);           // 1 постфиксная форма инкремента - переменной d присваеваем значение переменной b = 1 и увеличиваем b на 1. Теперь d = 1, b = 2;
+//c = (2+ ++a); alert(c);      // 5 Т. к. a  у нас после первой операции равно 2, прибавляем к 2 префиксную форму инкремента для a = 2 (это 3). Теперь a = 3, c = 5; 
+//d = (2+ b++); alert(d);      // 4 Суммируем 2 и b = 2 (после операции в строке 4). Получаем d = 4, b = 3;
+//alert(a);                    // 3 После всех предыдущих операций с инкрементом a = 3;
+//alert(b);                    // 3 После всех предыдущих операций с инкрементом b = 3;
+
+//№2
+
+//var a = 2;
+//var x = 1 + (a *= 2);        // 5 присваеваем переменной a значение 2 * 2 = 4 и прибавляем к 1. Получим x = 5.
+
+//№3
+
+var a = parseInt((Math.random()*20 - 10).toFixed()); // от -10 до 10 Здесь используем parseInt, т. к. метод toFixed возвращает строку.
+var b = Math.round((Math.random()*20 - 10)); //Math.round() округляет до целого и возвращает число
+console.log("a = " +a +"\n" +"b = " +b +"\n\n"); 
+
+if (a >= 0 && b >= 0) {
+    console.log(a - b);
+} 
+else if (a < 0 && b < 0) {
+    console.log(a * b);
+} else {
+    console.log(a + b);
+}
+
+//№4
+
+let x = Math.round(Math.random()*15 + 0);
+console.log("x = " +x)
+
+// switch(x) {
+//     case 0:
+//         console.log(x++);
+//     case 1:
+//         console.log(x++);
+//     case 2:
+//         console.log(x++);
+//     case 3:
+//         console.log(x++);
+//     case 4:
+//         console.log(x++);
+//     case 5:
+//         console.log(x++);
+//     case 6:
+//         console.log(x++);
+//     case 7:
+//         console.log(x++);
+//     case 8:
+//         console.log(x++);
+//     case 9:
+//         console.log(x++);
+//     case 10:
+//         console.log(x++);
+//     case 11:
+//         console.log(x++);
+//     case 12:
+//         console.log(x++);
+//     case 13:
+//         console.log(x++);
+//     case 14:
+//         console.log(x++);
+//     case 15:
+//         console.log(x);
+//         break;        
+// }
+
+function display(number){
+    if (number <= 15) {
+        console.log(number++);
+        display(number);
+    } else
+    return 'введите число от 0 до 15';
+}
+display(x);
+
+//№5
+
+function summ(x, y){
+    return x + y;
+}
+console.log("Сумма: " +summ(5, 6));
+
+var delta = function(x, y) {
+    return x - y;
+}
+console.log("Разность: " +delta(5, 6));
+
+var mult = (x, y) => x * y;
+console.log("Произведение: " +mult(5, 6));
+
+// function div(x, y){
+//     return y != 0 ? x / y : 'Деление на ноль';
+//     }
+
+var div = (x, y) => y != 0 ? parseFloat(x / y).toFixed(2) : 'Деление на ноль';
+console.log("Частное: " +div(5, 6));
+
+//№6
+
+function mathOp(x, y, sign) {
+    switch(sign) {
+        case '+' :
+            return summ(x, y);
+        case '-' :
+           return delta(x, y);
+        case '*' :
+            return mult(x, y);
+        case '/' :
+            return div(x, y);
+        default:
+            return 'Введите корректный оператор';
+    }
+}
+console.log(mathOp(10, 5, '/'));
+
+//№7
+
+//   null является определенным значением отсутствия объекта (не число, не строка, не логическое значение).
+//   undefined означает, что переменная не определена никаким значением
+
+//   НАПРИМЕР:
+//   var element;
+//   console.log(element); // значение переменной element до ее инициализации не определенно: тип undefined
+//   element = document.getElementById(''); //если неопределенной переменной присваивать несуществующий элемент, то ей будет возвращено значение null
+//   console.log(element); // null
+
+
+//При использовании математических операторов и других операторов сравнения < > <= >= значения null/undefined преобразуются к числам: null становится 0, а undefined – NaN.
+
+// alert(null == 0);  //false нестрогое равенство и сравнения > < >= <= работают по-разному. При проверке на равенство значение null ни к чему не приводятся и не равно никаким другим значениям.
+// alert(null === 0); //false типы object(ошибка, которая не может быть исправлена в ECMAScript 2015 JS из-за соображений обратной совместимости) и number
+// alert(null > 0);   //false Сравнения преобразуют null в число, рассматривая его как 0. Здесь 0 не больше 0 => false
+// alert(null >= 0);  //true Сравнения преобразуют null в число, рассматривая его как 0. И здесь 0 = 0  => true
+
+
+// alert(undefined > 0); // false при сравнении undefined преобразуется в NaN. NaN – это специальное числовое значение, которое возвращает false при любых сравнениях (правило языка).
+// alert(undefined < 0); // false
+// alert(undefined == 0); // false
+
+// alert(null == undefined) // true значения ни к чему не приводятся и равны друг другу но не равны никаким другим значениям. Это специальное правило языка.
+// alert(null === undefined) //false т. к.  null и undefined имеют разные типы.
+// alert(null > undefined); //false значения null/undefined преобразуются к числам: null становится 0, а undefined – NaN.
+// alert(null >= undefined);//false
+
+//№8
+
+function power(val, pow){
+    if (pow == 0){
+        return 1;
+        }
+        else if (Number.isInteger(pow)){
+            if (pow > 0){
+            return val * power(val, --pow);
+            }
+            else if (val != 0){
+                return 1 / val * power(val, ++pow);
+                } else
+                return "Возведение 0 в отрицательную степень невозможно";
+        } else
+            return Math.pow(val, pow);
+    }
+
+console.log(power(3, 3));
+
+</script>
