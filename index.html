@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script defer src="script.js"></script>
+</head>
+<body>
+<script>
+    var tC = parseInt(prompt("Введите температуру в градусах"));
+    var tF = (9 / 5) * tC + 32;
+    alert ("Температура по Фаренгейту: "+tF);
+
+    var name = "Василий";
+    var admin = name;
+    document.write("Имя администратора: " +admin +"<hr>");
+
+    var x = 1000;// тип number
+    var y = "108"; // тип string
+    console.log(x + y);// результат 1000108. Т. к. JS - слаботипизированный язык, и операция сложения между числом и строкой невозможна, то number приводится к строке и происходит объединение строк в новую строку
+
+    // Асинхронная загрузка скриптов. Специальные атрибуты async и defer (только для внешних скриптов) используются для того, чтобы пока грузится внешний скрипт – браузер показал остальную (следующую за ним) часть страницы.
+    // Разница между async и defer: атрибут defer сохраняет относительную последовательность скриптов (если подключается несколько скриптов), а async – нет (первым выполняется тот, который первым загрузился).
+    // defer всегда ждёт, пока весь HTML-документ будет готов, а async – нет
+</script>
+
+<form name="myForm">
+    <input name="varA" type="text" placeholder="Введите переменную а" autofocus>
+    <input name="varB" type="text" placeholder="Введите переменную b">
+    <input id="repl" type="submit" name="repl" value="Replace">
+</form>
+<p id="result"></p>
+
+</body>
+</html>
