@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //№1
+      
+    function simpleNums(x){
+        var i = 2;
+        while (i <= x){
+            var a = 1, count = 0;
+            while (a <= i/2){
+                count = i % a == 0 ? count + 1 : count;
+                a++;
+            }
+            if(count == 1){
+                console.log(i);
+            }
+            i++;
+        }
+    }   
+    simpleNums(100);            
+
+        //№2-3
+
+    var basket = [
+        {
+        title : 'item 1',
+        price: 100,
+        quant: 1
+        },
+        {
+        title: 'item 2',
+        price: 200,
+        quant: 2
+        },
+        {
+        title: 'item 3',
+        price: 300,
+        quant: 3
+        }
+    ];
+
+    function countBasketPrice(nameBasket){
+        var total = 0;
+        nameBasket.forEach(function (item) {
+            document.write('Стоимость товара ' +item.title +' в корзине: ' +item.price * item.quant +"; <br>");
+            total += item.price * item.quant;
+        });
+        document.write('<hr><h2 style="color: darkblue">Общая стоимость товаров в корзине: '+ total +'</h2>');
+    }
+
+    basket.push (
+        {
+        title : 'item 4',
+        price: 400,
+        quant: 4
+        } 
+    );
+
+    basket.forEach(function(item) {
+    item.price = item.price <= 200 ? item.price *= 1.25 : item.price;
+    });
+
+    // basket.splice(1,2);   
+    
+    countBasketPrice(basket);
+
+       //№4
+
+    for (i = 0; i <= 9; console.log(i++)){}
+
+       //№5
+
+    function stairs(x, sign){
+        var z = sign;
+        for (var i = 0; i < x; i++){
+            console.log(z);
+            z += sign;
+        }
+    }         
+    stairs(20,'X');
+
+    </script>
+</body>
+</html>
